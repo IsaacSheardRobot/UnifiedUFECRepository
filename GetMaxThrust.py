@@ -14,7 +14,6 @@ def GetMaxThrust(UEFC, V):
     Aprop       = np.nan          # Propeller disk area
 
     Omega  = np.sqrt(Tmax_static/(0.5*rho*Rprop**2*Aprop*ct0))
-    Omega += UEFC.thrust_rpm_correction(V)
 
     # calculate Lambda, CT, and then Tmax from given variables
     Lambda = np.nan  # Advance ratio
