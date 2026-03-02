@@ -5,16 +5,16 @@ def GetCD(UEFC, opt_vars, AR, S):
     # HINT: we have functions for these in the UEFC calss
 
     # Profile drag
-    CDp = np.nan
+    CDp = UEFC.GetCDp(opt_vars,AR,S)
 
     # Induced drag coefficient
-    CDi = np.nan
+    CDi = UEFC.GetCDi(opt_vars,AR,S)
 
     # Fuselage drag model
-    CDfuse = np.nan
+    CDfuse = UEFC.GetCDfuse(opt_vars,AR,S)
 
     # Payload drag coefficient increment
-    CDpay = np.nan
+    CDpay = UEFC.GetCDpay(opt_vars,AR,S)
 
     # Total drag coefficient
     CD = CDfuse + CDp + CDi + CDpay
