@@ -7,14 +7,14 @@ def GetWfuse(UEFC, AR, S):
     # AIRPLANE.
 
     # Calculate fuselage weight from UEFC parameters and S and AR
-    mfuse0 = np.nan  # fixed mass, e.g. servos, motor, etc. (kg)
-    mfusel = np.nan  # span (length) dependent mass (kg)
-    mfuseS = np.nan  # wing area dependent mass (kg)
-    mfuset = np.nan  # tail area dependent mass (kg)
+    mfuse0 = 0.247     # fixed mass, e.g. servos, motor, etc. (kg)
+    mfusel = 0.060     # span (length) dependent mass (kg)
+    mfuseS = 0.026     # wing area dependent mass (kg)
+    mfuset = 0.010     # tail area dependent mass (kg)
 
     l0 = 0.92          # Fuselage length for which mfusel were calculated (m)
-    S0 = 0.225         # Wing area for which mfuseS were calculated (m^2)
-    St0 = 0.024 + 0.02 # Tail area for which mfuset were calculated (m^2)
+    S0 = 0.354         # Wing area for which mfuseS were calculated (m^2)
+    St0 = 0.04 + 0.03  # Tail area for which mfuset were calculated (m^2)
 
     b = UEFC.wing_dimensions(AR, S)["Span"] # wingspan thta corresponds to the given AR and S
     l_AR = UEFC.l_AR  # Fuselage wingspan to length ratio (-)
@@ -25,7 +25,7 @@ def GetWfuse(UEFC, AR, S):
     St = Sh + Sv      # total tail area (m^2)
 
     # Calculate Wfuse from the given variables
-    Wfuse = (np.nan)  * UEFC.g
+    Wfuse = (mfuse0 + mfusel * l/l0 + mfuseS * S / S0 + mfuset * St / St0)  * UEFC.g
 
     return Wfuse
 
@@ -45,21 +45,21 @@ def tests() -> None:
     aircraft.l = 0.92
     S = 0.354
     Wfuse = GetWfuse(aircraft, AR, S)
-    assert check_close(Wfuse, 4.644216094096034, CLOSE_TOL)
+    assert check_close(Wfuse, 3.476826094096035, CLOSE_TOL)
 
     aircraft.Sh = 0.074
     aircraft.Sv = 0.04
     aircraft.l = 0.72
     S = 0.354
     Wfuse = GetWfuse(aircraft, AR, S)
-    assert check_close(Wfuse, 4.705878951238891, CLOSE_TOL)
+    assert check_close(Wfuse, 3.5384889512388917, CLOSE_TOL)
 
     aircraft.Sh = 0.024
     aircraft.Sv = 0.02
     aircraft.l = 0.92
     S = 1.0
     Wfuse = GetWfuse(aircraft, AR, S)
-    assert check_close(Wfuse, 7.680467199860239, CLOSE_TOL)
+    assert check_close(Wfuse, 4.382755335453457, CLOSE_TOL)
 
     print(f"==> All GetWfuse tests have passed!")
 
