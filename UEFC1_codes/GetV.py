@@ -8,7 +8,7 @@ def GetV(UEFC, opt_vars, AR, S):
     N = opt_vars[0]
     R = UEFC.R
 
-    V = (R * g * (N**2 - 1)**(1/2))**(1/2)  # Holds in a level turn
+    V = np.nan  # Holds in a level turn
 
     return V
 

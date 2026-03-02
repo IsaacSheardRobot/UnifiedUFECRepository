@@ -5,16 +5,16 @@ def GetCD(UEFC, opt_vars, AR, S):
     # HINT: we have functions for these in the UEFC calss
 
     # Profile drag
-    CDp = UEFC.GetCDp(opt_vars,AR,S)
+    CDp = np.nan
 
     # Induced drag coefficient
-    CDi = UEFC.GetCDi(opt_vars,AR,S)
+    CDi = np.nan
 
     # Fuselage drag model
-    CDfuse = UEFC.GetCDfuse(opt_vars,AR,S)
+    CDfuse = np.nan
 
     # Payload drag coefficient increment
-    CDpay = UEFC.GetCDpay(opt_vars,AR,S)
+    CDpay = np.nan
 
     # Total drag coefficient
     CD = CDfuse + CDp + CDi + CDpay
@@ -47,11 +47,11 @@ def tests() -> None:
     cd_breakdown = GetCD(aircraft, opt_vars, AR, S)
     CLOSE_TOL = 1E-10
 
-    assert check_close(cd_breakdown["Total"], 0.05812133648790842, CLOSE_TOL)
+    assert check_close(cd_breakdown["Total"], 0.053325915568752255, CLOSE_TOL)
     assert check_close(cd_breakdown["Breakdown"]['Fuselage'], 0.014538606403013183, CLOSE_TOL)
-    assert check_close(cd_breakdown["Breakdown"]['Wing'], 0.02065692809051693, CLOSE_TOL)
+    assert check_close(cd_breakdown["Breakdown"]['Wing'], 0.021508608136407932, CLOSE_TOL)
     assert check_close(cd_breakdown["Breakdown"]['Payload'], 0.0, CLOSE_TOL)
-    assert check_close(cd_breakdown["Breakdown"]['Induced'], 0.022925801994378308, CLOSE_TOL)
+    assert check_close(cd_breakdown["Breakdown"]['Induced'], 0.017278701029331146, CLOSE_TOL)
 
     aircraft = UEFC()
     aircraft.mpay_g = 280. # set payload mass (g)
@@ -63,11 +63,11 @@ def tests() -> None:
     opt_vars = np.array([1.06]) # load factor
     cd_breakdown = GetCD(aircraft, opt_vars, AR, S)
 
-    assert check_close(cd_breakdown["Total"], 0.04829468755830896, CLOSE_TOL)
+    assert check_close(cd_breakdown["Total"], 0.044856724898180766, CLOSE_TOL)
     assert check_close(cd_breakdown["Breakdown"]['Fuselage'], 0.011746031746031746, CLOSE_TOL)
-    assert check_close(cd_breakdown["Breakdown"]['Wing'], 0.01993735007902936, CLOSE_TOL)
+    assert check_close(cd_breakdown["Breakdown"]['Wing'], 0.021868070895473282, CLOSE_TOL)
     assert check_close(cd_breakdown["Breakdown"]['Payload'], 0.0, CLOSE_TOL)
-    assert check_close(cd_breakdown["Breakdown"]['Induced'], 0.01661130573324785, CLOSE_TOL)
+    assert check_close(cd_breakdown["Breakdown"]['Induced'], 0.01124262225667574, CLOSE_TOL)
 
     print(f"==> All GetCD tests have passed!")
 
