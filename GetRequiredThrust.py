@@ -10,10 +10,10 @@ def GetRequiredThrust(UEFC, opt_vars, AR, S):
 
     # Calculate q (dynamic pressure)
     V = UEFC.flight_velocity(opt_vars, AR, S)
-    q = np.nan
+    q = (1/2)*rho*(V**2)
 
     # Calculate required thrust from CD, q, S
-    T = np.nan
+    T = q*S*CD
 
     return T
 
@@ -48,3 +48,4 @@ def tests() -> None:
 
 if __name__ == "__main__":
     tests()
+
