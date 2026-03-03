@@ -5,13 +5,13 @@ def GetCDfuse(UEFC, opt_vars, AR, S):
     # You need to finish this file
 
     # Fuselage drag model including S-dependence (calibrated to Plane Vanilla)
-    SPV       = 0.225
-    CDA_fuse0 = 0.002
-    CDA_fuseS = 0.002
+    SPV       = np.nan
+    CDA_fuse0 = np.nan
+    CDA_fuseS = np.nan
 
     # calculate CDfuse from given variables
-    # CDA0   = np.nan
-    CDfuse = (1/S)*(CDA_fuse0 + CDA_fuseS * (S/SPV))
+    CDA0   = np.nan
+    CDfuse = np.nan
 
     return CDfuse
 

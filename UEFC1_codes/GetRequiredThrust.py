@@ -34,14 +34,14 @@ def tests() -> None:
     N = 1.1
     opt_vars = np.array([N])
     Treq = GetRequiredThrust(aircraft, opt_vars, AR, S)
-    assert check_close(Treq, 0.6051271411702426, CLOSE_TOL)
+    assert check_close(Treq, 0.5857926758425875, CLOSE_TOL)
 
     S = 0.9
     AR = 12
     N = 1.05
     opt_vars = np.array([N])
     Treq = GetRequiredThrust(aircraft, opt_vars, AR, S)
-    assert check_close(Treq, 0.9285875411863036, CLOSE_TOL)
+    assert check_close(Treq, 0.8705209531117815, CLOSE_TOL)
 
     print(f"==> All GetRequiredThrust tests have passed!")
 

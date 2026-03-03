@@ -9,7 +9,7 @@ def GetCDi(UEFC, opt_vars, AR, S):
     e   = UEFC.span_efficiency(opt_vars, AR, S)
 
     # calculate CDi from the given variables
-    CDi = ((CL)**2)/(np.pi * e * AR)
+    CDi = np.nan
 
     return CDi
 
@@ -30,7 +30,7 @@ def tests() -> None:
     opt_vars = np.array([1.1]) # load factor
     CDi = GetCDi(aircraft, opt_vars, AR, S)
     CLOSE_TOL = 1E-10
-    assert check_close(CDi, 0.022925801994378308, CLOSE_TOL)
+    assert check_close(CDi, 0.017278701029331146, CLOSE_TOL)
 
     aircraft = UEFC()
     aircraft.mpay_g = 280. # set payload mass (g)
@@ -41,7 +41,7 @@ def tests() -> None:
     S = 0.7
     opt_vars = np.array([1.06]) # load factor
     CDi = GetCDi(aircraft, opt_vars, AR, S)
-    assert check_close(CDi, 0.01661130573324785, CLOSE_TOL)
+    assert check_close(CDi, 0.01124262225667574, CLOSE_TOL)
 
     print(f"==> All GetCDi tests have passed!")
 

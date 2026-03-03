@@ -11,7 +11,7 @@ def GetCL(UEFC, opt_vars, AR, S):
     W  = UEFC.weight(opt_vars, AR, S)["Total"]
 
     # calculate CL from given variables
-    CL = (N*W)/((1/2)*rho*(V**2)*S)
+    CL = np.nan
 
     return CL
 
@@ -33,14 +33,14 @@ def tests() -> None:
     N = 1.1
     opt_vars = np.array([N])
     CL = GetCL(aircraft, opt_vars, AR, S)
-    assert check_close(CL, 0.8023760145690171, CLOSE_TOL)
+    assert check_close(CL, 0.696983290180625, CLOSE_TOL)
 
     N = 1.05
     AR = 12
     S = 0.9
     opt_vars = np.array([N])
     CL = GetCL(aircraft, opt_vars, AR, S)
-    assert check_close(CL, 0.7843885762197533, CLOSE_TOL)
+    assert check_close(CL, 0.6403910737326318, CLOSE_TOL)
 
     print(f"==> All GetCL tests have passed!")
 
