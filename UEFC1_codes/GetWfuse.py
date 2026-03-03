@@ -7,10 +7,10 @@ def GetWfuse(UEFC, AR, S):
     # AIRPLANE.
 
     # Calculate fuselage weight from UEFC parameters and S and AR
-    mfuse0 = np.nan  # fixed mass, e.g. servos, motor, etc. (kg)
-    mfusel = np.nan  # span (length) dependent mass (kg)
-    mfuseS = np.nan  # wing area dependent mass (kg)
-    mfuset = np.nan  # tail area dependent mass (kg)
+    mfuse0 = 0.247     # fixed mass, e.g. servos, motor, etc. (kg)
+    mfusel = 0.060     # span (length) dependent mass (kg)
+    mfuseS = 0.026     # wing area dependent mass (kg)
+    mfuset = 0.010     # tail area dependent mass (kg)
 
     l0 = 0.92          # Fuselage length for which mfusel were calculated (m)
     S0 = 0.354         # Wing area for which mfuseS were calculated (m^2)
@@ -25,8 +25,7 @@ def GetWfuse(UEFC, AR, S):
     St = Sh + Sv      # total tail area (m^2)
 
     # Calculate Wfuse from the given variables
-    Wfuse = (np.nan)  * UEFC.g
-
+    Wfuse = (mfuse0 + mfusel * l/l0 + mfuseS * S / S0 + mfuset * St / St0)  * UEFC.g
     return Wfuse
 
 # DO NOT MODIFY THIS
