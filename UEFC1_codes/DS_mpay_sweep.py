@@ -128,25 +128,25 @@ if __name__ == "__main__":
     aircraft = UEFC()
 
     # Geometry parameters
-    S  = np.nan                 # Wing area (m^2)
-    AR = np.nan                 # Wing aspect ratio
-    aircraft.taper    = np.nan  # taper ratio
-    aircraft.dihedral = np.nan  # Wing dihedral (degrees)
-    aircraft.tau      = np.nan  # thickness-to-chord ratio
+    S  = 0.354                 # Wing area (m^2)
+    AR = 9.0                # Wing aspect ratio
+    aircraft.taper    = 0.45 # taper ratio
+    aircraft.dihedral = 10.0  # Wing dihedral (degrees)
+    aircraft.tau      = 0.10  # thickness-to-chord ratio
 
     # Tail parameters
-    aircraft.Sh = np.nan # Wing area of horizontal tail (m^2)
-    aircraft.Sv = np.nan # Wing area of vertical tail (m^2)
+    aircraft.Sh = 0.04 # Wing area of horizontal tail (m^2)
+    aircraft.Sv = 0.03 # Wing area of vertical tail (m^2)
 
     # Fuselage parameters
-    aircraft.l_AR = np.nan # Fuselage length to wingspan ratio (-)
+    aircraft.l_AR = 1.63 # Fuselage length to wingspan ratio (-)
 
     # Aerodynamic parameters
-    aircraft.CLdes = np.nan  # maximum CL wing will be designed to fly at (in cruise)
-    aircraft.e0    = np.nan  # Span efficiency for straight level flight
+    aircraft.CLdes = 0.75 # maximum CL wing will be designed to fly at (in cruise)
+    aircraft.e0    = 1.0  # Span efficiency for straight level flight
 
     # Wing bending and material properties
-    aircraft.dbmax   = np.nan  # tip displacement bending constraint
+    aircraft.dbmax   = 0.1  # tip displacement bending constraint
     aircraft.rhofoam = 32.     # kg/m^3. high load foam
     aircraft.Efoam   = 19.3E6  # Pa.     high load foam
 
