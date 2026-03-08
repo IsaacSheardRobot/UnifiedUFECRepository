@@ -1,0 +1,43 @@
+DS.4
+
+For DS.4, the fastest design in the scanned design space occurred at
+lambda = 0.50 and tau = 0.12, while the slowest design occurred at
+lambda = 1.00 and tau = 0.08.
+
+After the refined scan, the best case achieved a flight speed of
+V = 11.09 m/s at approximately AR = 7.75 and S = 0.1535 m^2.
+The worst case achieved a flight speed of V = 10.25 m/s at
+approximately AR = 4.00 and S = 0.1805 m^2.
+
+The best DS.4 design uses a more tapered and thicker wing, along with
+a higher aspect ratio and smaller wing area. This combination reduces
+induced drag and improves speed. In contrast, the worst DS.4 design
+uses a more rectangular and thinner wing, along with a lower aspect
+ratio and larger wing area, which increases drag and reduces
+performance.
+
+The best design lies near the active thrust, lift, and wing-tip
+deflection constraints, showing that the optimizer pushes the airplane
+to the edge of the feasible design space in order to maximize speed.
+
+DS.5
+
+For DS.5, the fastest design also occurred at lambda = 0.50 and
+tau = 0.12, while the slowest design occurred at lambda = 1.00 and
+tau = 0.08.
+
+After the refined scan, the best DS.5 case achieved a flight speed of
+V = 11.18 m/s at approximately AR = 8.00 and S = 0.1355 m^2.
+The worst DS.5 case achieved a flight speed of V = 10.36 m/s at
+approximately AR = 4.25 and S = 0.1745 m^2.
+
+Compared with DS.4, the relaxed constraints in DS.5
+((d/b)_max = 0.10 and CL_des = 0.90) allow slightly higher speeds,
+higher aspect ratios, and smaller wing areas for the best-performing
+designs.
+
+The best DS.5 designs are still primarily limited by thrust and
+wing-tip deflection. Overall, the DS.5 results show the same general
+trend as DS.4: lower lambda, higher tau, higher AR, and lower S
+produce the fastest airplanes, while higher lambda, lower tau,
+lower AR, and larger S produce the slowest ones.
