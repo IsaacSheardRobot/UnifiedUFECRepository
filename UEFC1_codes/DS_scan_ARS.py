@@ -209,7 +209,7 @@ if __name__ == "__main__":
     num_division = 41
 
        # Coarse scan
-    # scan_ARS(aircraft, 4.0, 10.0, 0.10, 0.35, 21, show_plots=True)
+    scan_ARS(aircraft, 0, 20, 0, 2.5, 41, show_plots=True)
 
     # # Refined scan
     # scan_ARS(aircraft, 5.0, 7.0, 0.15, 0.22, 41, show_plots=True)
@@ -221,4 +221,4 @@ if __name__ == "__main__":
     # scan_ARS(aircraft, 5.3, 5.7, 0.150, 0.160, 61, show_plots=True)
 
     # Final scan
-    scan_ARS(aircraft, 5.3, 5.7, 0.150, 0.159, 61, show_plots=True)
+    # scan_ARS(aircraft, 5.3, 5.7, 0.150, 0.159, 61, show_plots=True)
