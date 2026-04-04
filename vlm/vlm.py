@@ -15,17 +15,17 @@ import matplotlib.pyplot as plt
 # angle, tip incidence angle, dihedral angle.
 # Note: wing twist is defined as (agroot - agtip). Therefore, this wing has a
 # twist of +5 degrees, and the tip is at a lower incidence angle than the root.
-root_angle = 3.13
-washout_diff = -5.0
+root_angle = 0 ##3.13
+washout_diff = 0 ##-5.0
 tip_angle = root_angle + washout_diff
-PV = UEFC_wing.UEFC_wing(b=1.77, croot=0.27, ctip=0.12, agroot=root_angle, agtip=tip_angle, dihedral=10.)
+PV = UEFC_wing.UEFC_wing(b=1.087, croot=0.187, ctip=0.094, agroot=root_angle, agtip=tip_angle, dihedral=10.)
 #Isaac: get b, croot, ctip from the first part and iterate to make sure that cl is fine
 
 # Plot the wing geometry
 PV.plotgeom()
 
 # Solve the flow around the wing at a desired CL
-G, alpha = PV.solve(CL=0.65) # The solution is returned in G and the required angle of attack in alpha increase to local 0.8
+G, alpha = PV.solve(CL=0.74) # The solution is returned in G and the required angle of attack in alpha increase to local 0.8
 # Isaac: need to get a certain CL
 
 
