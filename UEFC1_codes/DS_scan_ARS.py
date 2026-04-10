@@ -186,9 +186,9 @@ if __name__ == "__main__":
     # Geometry parameters
     S  = np.nan                  # Wing area (m^2)
     AR = np.nan                  # Wing aspect ratio
-    aircraft.taper    = 0.7   # taper ratio
+    aircraft.taper    = 0.5   # taper ratio
     aircraft.dihedral = 10   # Wing dihedral (degrees)
-    aircraft.tau      = 0.10   # thickness-to-chord ratio
+    aircraft.tau      = 0.12   # thickness-to-chord ratio
 
     # Tail parameters
     aircraft.Sh = 0.04 # Wing area of horizontal tail (m^2)
@@ -198,8 +198,8 @@ if __name__ == "__main__":
     aircraft.l_AR = 1.63  # Fuselage wingspan to length ratio (-)
 
     # Aerodynamic parameters
-    aircraft.CLdes    = 0.75    # maximum CL wing will be designed to fly at (in cruise)
-    aircraft.e0       = 1.00    # Span efficiency for straight level flight
+    aircraft.CLdes    = 0.74    # maximum CL wing will be designed to fly at (in cruise)
+    aircraft.e0       = 1.01    # Span efficiency for straight level flight
 
     # Wing bending and material properties
     aircraft.dbmax    = 0.08  # tip displacement bending constraint
